@@ -1,0 +1,13 @@
+<button class="btn btn-success" [routerLink]="['/foros/' + idtema + '/posts']">Volver atrás</button>
+<form>
+    <div class="form-group">
+        <label>Titulo: </label>
+        <input type="text" class="form-control" name="titulo" [(ngModel)]="post.titulo">
+    </div>
+    <div class="form-group">
+        <label>Descripción: </label>
+        <input type="text" class="form-control" name="descripcion" [(ngModel)]="post.descripcion">
+    </div>
+    <textarea cols="1000" rows="800" name="contenido" [(ngModel)]="post.contenido" [froalaEditor]="options"><div [(froalaView)]="post.contenido"></div></textarea>
+    <button class="btn btn-success" (click)="onSubmit()">Guardar</button>
+</form>

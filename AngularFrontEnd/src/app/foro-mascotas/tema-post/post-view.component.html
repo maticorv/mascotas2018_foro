@@ -1,0 +1,9 @@
+<div class="jumbotron">
+  <h1>{{post.titulo}}</h1>
+  <hr class="my-4">
+  <h4>{{post.descripcion}}</h4>
+  <hr class="my-4">
+  <button class="btn btn-success" [routerLink]="['/foros/' + temaid + '/posts']">Volver atrás</button>
+</div>
+<div class="alert alert-dark" role="alert" [innerHTML]="post.contenido | sanitizadorDom"></div>
+<comentarios [postid]='post._id'></comentarios>

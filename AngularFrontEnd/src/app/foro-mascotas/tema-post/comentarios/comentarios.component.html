@@ -1,0 +1,22 @@
+<div class="alert alert-primary" role="alert" *ngIf="usuarioLogueado">
+    <form action="">
+        <div class="form-group">
+            <label>Comentario: </label>
+            <input type="text" class="form-control" name="descripcion" [(ngModel)]="this.comentario.contenido">
+        </div>
+        <button class="btn btn-success" (click)="onSubmit()">Comentar</button>
+    </form>
+</div>
+<div class=" card text-white bg-info mb-3" *ngFor="let com of comentarios index as i">
+    <div class="card-header">Por {{com.username}} | {{com.createdAt | date: 'dd/MM/yyyy HH:mm:ss'}}</div>
+    <div class="card-body">
+        <p class="card-text">{{com.contenido}}</p>
+        <button *ngIf="usuarioLogueado" type="button" class="btn btn-danger" (click)="onDislike(com, i)"><span class="material-icons">thumb_down</span>{{com.dislike}}</button>
+        <button *ngIf="usuarioLogueado" type="button" class="btn btn-success" (click)="onLike(com, i)"><span class="material-icons">thumb_up</span>{{com.like}}</button>
+        <div *ngIf="!usuarioLogueado" class="likes"><span class="material-icons">thumb_up</span>{{com.like}}</div>
+        <div *ngIf="!usuarioLogueado" class="dislikes"><span class="material-icons">thumb_down</span>{{com.dislike}}</div>
+        
+    </div>
+</div>
+
+<!--Conflicto con Bootstrap si pongo material-icons en el DIV -->

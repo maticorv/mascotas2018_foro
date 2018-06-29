@@ -1,0 +1,18 @@
+<h3>PANEL DE ADMINISTRACIÓN DE POSTs DEL USUARIO</h3>
+<p>Modifica o elimina tus posts segun lo necesites.</p>
+<table>
+  <thead>
+    <th>Post</th>
+    <th>Descripción</th>
+    <th>Modificar</th>
+    <th>Eliminar</th>
+  </thead>
+  <tbody>
+    <tr *ngFor=" let post of user_posts">
+      <td>{{post.titulo}}</td>
+      <td>{{post.descripcion}}</td>
+      <td><i class="material-icons" [routerLink]="[post._id + '/edit']">edit</i></td>
+      <td><i class="material-icons" (click)="deletePost(post._id)">delete</i></td>
+    </tr>
+  </tbody>
+</table>

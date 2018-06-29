@@ -1,0 +1,15 @@
+<button *ngIf="usuarioLogueado" class="btn btn-success" [routerLink]="['/foros/nuevotema']">Nuevo Tema</button>
+<table class="table table-hover">
+    <thead>
+        <th>Tema</th>
+        <th>Descripcion</th>
+        <th>Fecha</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tema of temas">
+            <td><a [routerLink]="['/foros/' + tema._id + '/posts']">{{tema.titulo}}</a></td>
+            <td>{{tema.descripcion}}</td>
+            <td>{{tema.createdAt | date: 'dd/MM/yyyy'}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <h1 class="display-4">{{this.tema?.titulo}}</h1>
+  <hr class="my-4">
+  <p>{{tema?.descripcion}}</p>
+  <button *ngIf="usuarioLogueado" class="btn btn-success" [routerLink]="['/foros/' + idtema + '/posts/nuevopost']">Nuevo Post</button>
+</div>
+<table class="table table-light table-striped">
+  <tbody *ngFor="let post of posts">
+    <tr>
+      <td><a href="" [routerLink]="['/foros/' + tema._id+ '/' + post._id ]">{{post.titulo}}</a></td>
+      <td>{{post.descripcion}}</td>
+    </tr>
+  </tbody>
+</table>
